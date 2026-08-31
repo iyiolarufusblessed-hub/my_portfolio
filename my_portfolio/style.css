@@ -1,11 +1,4 @@
-/* =====================================================================
-   Stylesheet for my portfolio website
-   Pure CSS3 only (no JavaScript). Uses CSS variables so the whole
-   colour scheme can switch between a "light" and "dark" theme just by
-   redefining variables — see the "Light / dark mode" section below.
-   ===================================================================== */
-
-/* ---------- Colour variables: LIGHT theme (default) ---------- */
+/* ---------- Colour variables ---------- */
 :root {
   --bg: #E8F5E9;
   --surface: #ffffff;
@@ -25,17 +18,6 @@ body {
   padding: 0;
   background-color: var(--bg);
 }
-
-/* .page-wrap holds everything except the two hidden checkboxes below.
-   Colours are read from the variables above, so switching the
-   variables (which the dark-mode checkbox does) re-colours the whole
-   page instantly, with no JavaScript involved.
-.page-wrap {
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}*/
 
 .container {
   max-width: 900px;
@@ -151,15 +133,6 @@ nav ul li a.active {
   color: var(--primary-dark);
 }
 
-/* ---------- Light / dark mode switch (CSS-only, no JavaScript) ----------
-   How it works: a hidden checkbox sits right before .page-wrap in the
-   HTML. A <label> styled as a sun/moon switch is linked to it with a
-   matching "for" attribute. When the checkbox is checked, the CSS
-   selector ".theme-toggle:checked ~ .page-wrap" matches, and the
-   variables declared inside that rule override the :root defaults —
-   instantly re-colouring every element on the page that uses var(--x).
-   No script is required; only the checkbox's built-in on/off state and
-   the CSS general sibling combinator (~). */
 /*.theme-toggle {
   display: none;
 }
@@ -333,12 +306,7 @@ tr:hover td {
   background-color: rgba(244, 163, 0, 0.08);
 }
 
-/* ---------- Animated skill bars ----------
-   Each bar's target width is set inline in the HTML (style="width:85%").
-   The @keyframes rule below only defines the STARTING width (0%); the
-   ending width is left unset, so the browser fills it in using the
-   bar's own inline width. That lets one shared animation grow every
-   bar from 0 up to its own percentage on page load. */
+/* ---------- Animated skill bars ---------- */
 @keyframes growBar {
   from { width: 0%; }
 }
