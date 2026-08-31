@@ -1,0 +1,444 @@
+/* =====================================================================
+   Stylesheet for my portfolio website
+   Pure CSS3 only (no JavaScript). Uses CSS variables so the whole
+   colour scheme can switch between a "light" and "dark" theme just by
+   redefining variables — see the "Light / dark mode" section below.
+   ===================================================================== */
+
+/* ---------- Colour variables: LIGHT theme (default) ---------- */
+:root {
+  --bg: #E8F5E9;
+  --surface: #ffffff;
+  --text: #000000;
+  --text-dim: #5b5d76;
+  --primary: #43A047;
+  --primary-dark: #43A047;
+  --accent: #f2CF07;
+  --border: #ffffff;
+  --shadow: rgba(35, 36, 55, 0.12);
+}
+
+/* ---------- Base page setup ---------- */
+body {
+  font-family: "Nunito Sans", "Segoe UI", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+}
+
+/* .page-wrap holds everything except the two hidden checkboxes below.
+   Colours are read from the variables above, so switching the
+   variables (which the dark-mode checkbox does) re-colours the whole
+   page instantly, with no JavaScript involved.
+.page-wrap {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}*/
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+  color: var(--primary);
+}
+
+h2 {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+p {
+  color: #000000;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Header and navigation ---------- */
+header {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 18px 20px;
+  border-bottom: 4px solid var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Hamburger menu toggle (mobile navigation) */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.nav-toggle-label span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 15px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 6px 5px 0;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+nav ul li a.active {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+}
+
+/* ---------- Light / dark mode switch (CSS-only, no JavaScript) ----------
+   How it works: a hidden checkbox sits right before .page-wrap in the
+   HTML. A <label> styled as a sun/moon switch is linked to it with a
+   matching "for" attribute. When the checkbox is checked, the CSS
+   selector ".theme-toggle:checked ~ .page-wrap" matches, and the
+   variables declared inside that rule override the :root defaults —
+   instantly re-colouring every element on the page that uses var(--x).
+   No script is required; only the checkbox's built-in on/off state and
+   the CSS general sibling combinator (~). */
+/*.theme-toggle {
+  display: none;
+}
+
+.theme-toggle:checked ~ .page-wrap {
+  --bg: #1B5E20;
+  --surface: #1f2140;
+  --text: #ffffff;
+  --text-dim: #b7b9d6;
+  --primary: #ffffff;
+  --primary-dark: #14152b;
+  --accent: #ffcc66;
+  --border: #34365c;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+.theme-switch-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.switch-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.switch-track::before {
+  content: "\2600";
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.theme-toggle:checked ~ .page-wrap .switch-track::before {
+  transform: translateX(20px);
+  content: "\1F319";
+}*/
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 24px;
+  margin: 5px 5px 5px 0;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px var(--shadow);
+}
+
+/* ---------- Hero section (home page) ---------- */
+.hero {
+  text-align: left;
+  background-color: var(--surface);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px var(--shadow);
+  padding: 40px 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+}
+
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px var(--shadow);
+}
+
+.hero h2 {
+  font-size: 28px;
+}
+
+/* ---------- Content boxes (skills, projects, hobbies, education) ---------- */
+.box {
+  background-color: var(--surface);
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px var(--shadow);
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.box h3 {
+  margin-top: 0;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.columns .box {
+  flex: 1 1 260px;
+}
+
+/* ---------- Table (education page) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 22px;
+  background-color: var(--surface);
+  box-shadow: 0 3px 10px var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 11px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Personal-data style tables in the CV page use a <th> as a row label
+   instead of a header row, so they get a lighter, narrower treatment
+   instead of the full primary-colour header bar above. */
+.info-table th {
+  background-color: var(--bg);
+  color: var(--text);
+  width: 35%;
+  border-right: 1px solid var(--border);
+  text-align: left;
+}
+
+tr:hover td {
+  background-color: rgba(244, 163, 0, 0.08);
+}
+
+/* ---------- Animated skill bars ----------
+   Each bar's target width is set inline in the HTML (style="width:85%").
+   The @keyframes rule below only defines the STARTING width (0%); the
+   ending width is left unset, so the browser fills it in using the
+   bar's own inline width. That lets one shared animation grow every
+   bar from 0 up to its own percentage on page load. */
+@keyframes growBar {
+  from { width: 0%; }
+}
+
+.skill-bar-bg {
+  background-color: var(--border);
+  border-radius: 10px;
+  width: 100%;
+  height: 18px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  animation: growBar 1.2s ease-out;
+}
+
+/* ---------- Contact form ---------- */
+form {
+  background-color: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px var(--shadow);
+  padding: 22px;
+  max-width: 500px;
+  border: 1px solid var(--border);
+}
+
+form label {
+  display: block;
+  font-weight: 700;
+  margin-top: 12px;
+  color: var(--text);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 9px;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  background-color: var(--bg);
+  color: var(--text);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--primary);
+  color: #000000;
+  text-align: center;
+  padding: 20px;
+  margin-top: 34px;
+  border-top: 4px solid var(--accent);
+}
+
+footer a {
+  color: var(--accent);
+}
+
+/* ---------- Responsiveness ---------- */
+@media screen and (max-width: 700px) {
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .nav-toggle:checked ~ nav ul {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0 0 8px 0;
+  }
+
+  nav ul li a {
+    display: block;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+}
